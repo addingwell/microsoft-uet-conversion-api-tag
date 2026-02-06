@@ -543,9 +543,10 @@ const api_endpoint = "https://capi.uet.microsoft.com";
 const api_version = "v1";
 const parsedPageLocation = parseUrl(eventData.page_location);
 const clickId = getClickId();
+const _uetmsclkid = getCookieValues('_uetmsclkid')[0] ? getCookieValues('_uetmsclkid')[0].replace('_uet', '') : undefined;
 
-if(clickId) {
-  setCookie('FPMSCLKID', clickId, {
+if(clickId || _uetmsclkid) {
+  setCookie('FPMSCLKID', clickId || _uetmsclkid, {
     httpOnly: true,
     secure: true,
     domain: 'auto',
@@ -1009,6 +1010,10 @@ ___SERVER_PERMISSIONS___
               {
                 "type": 1,
                 "string": "FPMSCLKID"
+              },
+              {
+                "type": 1,
+                "string": "_uetmsclkid"
               }
             ]
           }
@@ -1132,6 +1137,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 04/02/2026, 15:05:42
+Created on 06/02/2026, 11:22:54
 
 
