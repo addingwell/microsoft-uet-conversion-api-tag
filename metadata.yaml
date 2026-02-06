@@ -1,4 +1,6 @@
 homepage: "https://addingwell.com"
 versions:
+  - sha: 214f6a8256d51041195c9feacc6e3495c3755eff
+    changeNotes: Handles client-side cookie _uetmsclkid
   - sha: 1207c7d8a6fc12b96188cfc4b16181f47eaefe94
     changeNotes: Initial release.
