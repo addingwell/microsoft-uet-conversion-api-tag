@@ -544,19 +544,24 @@ const api_version = "v1";
 const parsedPageLocation = parseUrl(eventData.page_location);
 const clickId = getClickId();
 const _uetmsclkid = getCookieValues('_uetmsclkid')[0] ? getCookieValues('_uetmsclkid')[0].replace('_uet', '') : undefined;
+const adStorageConsent = getAdStorageConsent();
 
 if(clickId || _uetmsclkid) {
-  setCookie('FPMSCLKID', clickId || _uetmsclkid, {
-    httpOnly: true,
-    secure: true,
-    domain: 'auto',
-    'max-age': 7776000,
-    path: '/'
-  });
+  if(!adStorageConsent || (adStorageConsent && adStorageConsent == 'G')) {
+    setCookie('FPMSCLKID', clickId || _uetmsclkid, {
+      httpOnly: false,
+      secure: true,
+      domain: 'auto',
+      'max-age': 7776000,
+      path: '/'
+    });
+  }
 }
 
 if((eventData.client_id || eventData.user_id) && data.sendPixelRequest) {
-  sendIDSyncBeacon();
+  if(!adStorageConsent || (adStorageConsent && adStorageConsent == 'G')) {
+    sendIDSyncBeacon();
+  }
 }
 
 let event = {};
@@ -572,7 +577,7 @@ event.eventTime = Math.floor(currentTimestamp / 1000);
 event.eventSourceUrl = eventData.page_location;
 event.referrerUrl = eventData.page_referrer;
 event.pageTitle = eventData.page_title;
-event.adStorageConsent = getAdStorageConsent();
+event.adStorageConsent = adStorageConsent;
 event.userData = getUserData();
 event.customData = getCustomData();
 
@@ -1137,6 +1142,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 06/02/2026, 11:22:54
+Created on 10/04/2026, 17:16:41
 
 
