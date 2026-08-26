@@ -1,6 +1,8 @@
 homepage: "https://addingwell.com"
 documentation: "https://docs.addingwell.com/en/microsoft-uet-conversion-api"
 versions:
+  - sha: c6e1cb7bd2181ab1a4288b23797d674f8de95ac2
+    changeNotes: Add dataProvider field
   - sha: 5c10ee93375fb478738793d628e3228bd8248e7e
     changeNotes: Consent management update
   - sha: 214f6a8256d51041195c9feacc6e3495c3755eff
