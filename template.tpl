@@ -580,6 +580,7 @@ event.pageTitle = eventData.page_title;
 event.adStorageConsent = adStorageConsent;
 event.userData = getUserData();
 event.customData = getCustomData();
+event.dataProvider = "addingwell-sgtm";
 
 if(data.serverEventDataList) {
   data.serverEventDataList.forEach(d => {
