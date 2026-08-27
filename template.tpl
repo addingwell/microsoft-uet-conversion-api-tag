@@ -580,7 +580,6 @@ event.pageTitle = eventData.page_title;
 event.adStorageConsent = adStorageConsent;
 event.userData = getUserData();
 event.customData = getCustomData();
-event.dataProvider = "addingwell-sgtm";
 
 if(data.serverEventDataList) {
   data.serverEventDataList.forEach(d => {
@@ -589,7 +588,8 @@ if(data.serverEventDataList) {
 }
 
 const requestBody = {
-  data: [event]
+  data: [event],
+  dataProvider: "addingwell-sgtm"
 };
 
 sendHttpRequest(encodeUri(api_endpoint + '/' + api_version + '/' + data.uetTagId + '/events'), (statusCode, headers, body) => {
