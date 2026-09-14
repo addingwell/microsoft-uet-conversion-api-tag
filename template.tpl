@@ -738,7 +738,7 @@ function getClickId() {
     clickId = getCookieValues('FPMSCLKID')[0];
   }
   
-  if(parsedPageLocation.searchParams && parsedPageLocation.searchParams.msclkid) {
+  if(parsedPageLocation && parsedPageLocation.searchParams && parsedPageLocation.searchParams.msclkid) {
     clickId = parsedPageLocation.searchParams.msclkid;
   }
   
