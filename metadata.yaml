@@ -1,6 +1,8 @@
 homepage: "https://addingwell.com"
 documentation: "https://docs.addingwell.com/en/microsoft-uet-conversion-api"
 versions:
+  - sha: 1304a810be0270416a07ba20d195ede0c8949f35
+    changeNotes: Guard against undefined parsedPageLocation in getClickId
   - sha: f5fd45679b4f463ac00e2bc433d4130db702e1cc
     changeNotes: Move dataProvider at request level
   - sha: c6e1cb7bd2181ab1a4288b23797d674f8de95ac2
